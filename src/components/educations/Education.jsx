@@ -1,120 +1,56 @@
-import React from 'react'
-import './education.css'
-import {BiCheck} from 'react-icons/bi'
+import React from "react";
+import "./education.css";
+import { IoSchoolOutline } from "react-icons/io5";
 
-const Services = () => {
+const data = [
+  {
+    degree: "Master in Computer Science",
+    school: "John Abbott College",
+    city: "Montreal",
+    country: "CA",
+    startTime: "April, 2018",
+    endTime: "May, 2020",
+  },
+  {
+    degree: "Bachelor in Art",
+    school: "Concordia University",
+    city: "Montreal",
+    country: "CA",
+    startTime: "April, 2012",
+    endTime: "May, 2016",
+  },
+];
+
+const Education = () => {
   return (
-    <section id='services'>
+    <section id="education">
       <h5>What about my education</h5>
       <h2>Educations</h2>
 
-      <div className="container services__container">
-        <article className="service">
-          <div className="service__head">
-            <h3>UI/UX Design</h3>
-          </div>
+      <div className="container education__container">
+        {data.map(({ degree, school, city, country, startTime, endTime }) => {
+          return (
+            <article className="education">
+              <ul className="education__list">
+                <li>
+                  <IoSchoolOutline className="education__list-icon" />
+                  <h4 className="school">{degree}</h4>
+                  <h4>@ {school}</h4>
+                  <h4>
+                    {city} {country}
+                  </h4>
 
-          <ul className='service__list'>
-            <li>
-              <BiCheck className='service__list-icon' />
-              <p>Lorem, ipsum dolor sit amet consectetur elit.</p>
-            </li>
-            <li>
-              <BiCheck className='service__list-icon' />
-              <p>Lorem, ipsum dolor sit amet consectetur elit.</p>
-            </li>
-            <li>
-              <BiCheck className='service__list-icon' />
-              <p>Lorem, ipsum dolor sit amet consectetur elit.</p>
-            </li>
-            <li>
-              <BiCheck className='service__list-icon' />
-              <p>Lorem, ipsum dolor sit amet consectetur elit.</p>
-            </li>
-            <li>
-              <BiCheck className='service__list-icon' />
-              <p>Lorem, ipsum dolor sit amet consectetur elit.</p>
-            </li>
-            <li>
-              <BiCheck className='service__list-icon' />
-              <p>Lorem, ipsum dolor sit amet consectetur elit.</p>
-            </li>
-          </ul>
-        </article>
-        {/* END OF UI/UX */}
-        <article className="service">
-          <div className="service__head">
-            <h3>Web Development</h3>
-          </div>
-
-          <ul className='service__list'>
-            <li>
-              <BiCheck className='service__list-icon' />
-              <p>Lorem, ipsum dolor sit amet consectetur elit.</p>
-            </li>
-            <li>
-              <BiCheck className='service__list-icon' />
-              <p>Lorem, ipsum dolor sit amet consectetur elit.</p>
-            </li>
-            <li>
-              <BiCheck className='service__list-icon' />
-              <p>Lorem, ipsum dolor sit amet consectetur elit.</p>
-            </li>
-            <li>
-              <BiCheck className='service__list-icon' />
-              <p>Lorem, ipsum dolor sit amet consectetur elit.</p>
-            </li>
-            <li>
-              <BiCheck className='service__list-icon' />
-              <p>Lorem, ipsum dolor sit amet consectetur elit.</p>
-            </li>
-            <li>
-              <BiCheck className='service__list-icon' />
-              <p>Lorem, ipsum dolor sit amet consectetur elit.</p>
-            </li>
-            <li>
-              <BiCheck className='service__list-icon' />
-              <p>Lorem, ipsum dolor sit amet consectetur elit.</p>
-            </li>
-          </ul>
-        </article>
-        {/* WEB DEVELOPMENT */}
-        <article className="service">
-          <div className="service__head">
-            <h3>Content Creation</h3>
-          </div>
-
-          <ul className='service__list'>
-            <li>
-              <BiCheck className='service__list-icon' />
-              <p>Lorem, ipsum dolor sit amet consectetur elit.</p>
-            </li>
-            <li>
-              <BiCheck className='service__list-icon' />
-              <p>Lorem, ipsum dolor sit amet consectetur elit.</p>
-            </li>
-            <li>
-              <BiCheck className='service__list-icon' />
-              <p>Lorem, ipsum dolor sit amet consectetur elit.</p>
-            </li>
-            <li>
-              <BiCheck className='service__list-icon' />
-              <p>Lorem, ipsum dolor sit amet consectetur elit.</p>
-            </li>
-            <li>
-              <BiCheck className='service__list-icon' />
-              <p>Lorem, ipsum dolor sit amet consectetur elit.</p>
-            </li>
-            <li>
-              <BiCheck className='service__list-icon' />
-              <p>Lorem, ipsum dolor sit amet consectetur elit.</p>
-            </li>
-          </ul>
-        </article>
-        {/* END OF CONTENT CREATION */}
+                  <span>
+                    {startTime} - {endTime}
+                  </span>
+                </li>
+              </ul>
+            </article>
+          );
+        })}
       </div>
     </section>
-  )
-}
+  );
+};
 
-export default Services
+export default Education;
