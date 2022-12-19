@@ -1,83 +1,70 @@
-ul span {
-  font-size: 14px;
-  font-style: italic;
-  text-align:right;
-  float: right;
-  } 
-  .school {
-    /* font-family: 'Fira Sans', sans-serif;
-    font-size: 16px;
-    font-weight: normal; */
-    color:#eba937;
-}
-.education__container {
-  /* display: grid; */
-  /* grid-template-columns: repeat(3, 1fr);
-  gap: 3rem; */
+.services__container {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 3rem;
 }
 
-.education {
+.service {
   background: var(--color-bg-variant);
-  border-radius: 1rem 1rem 1rem 1rem;
+  border-radius: 0 0 2rem 2rem;
   border: 1px solid var(--color-primary);
   height: fit-content;
   transition: var(--transition);
 }
 
-.education:hover {
+.service:hover {
   background: transparent;
   border-color: var(--color-primary-variant);
   cursor: default;
 }
 
-/* .education__head {
+.service__head {
   background: var(--color-primary);
   padding: 2rem;
-  border-radius: 2rem 2rem 2rem 2rem;
+  border-radius: 0 0 2rem 2rem;
   box-shadow: 0 2rem 1rem rgba(0, 0, 0, 0.1);
-} */
+}
 
-.education__head h3 {
+.service__head h3 {
   color: var(--color-bg);
   font-size: 1rem;
   text-align: center;
 }
 
-.education__list {
-  padding-top: 1rem;
-  padding-left: 1.5rem;
+.service__list {
+  padding: 2rem;
 }
 
-.education__list li {
+.service__list li {
   display: flex;
   gap: 1rem;
   margin-bottom: 0.8rem;
 }
 
-.education__list-icon {
+.service__list-icon {
   color: var(--color-primary);
   margin-top: 2px;
 }
 
-.education__list p {
+.service__list p {
   font-size: 0.9rem;
 }
 
 /* ================ MEDIA QUERIES (MEDIUM DEVICES) ================= */
 @media screen and (max-width: 1024px) {
-  .education__container {
+  .services__container {
     grid-template-columns: 1fr 1fr;
     gap: 2rem;
   }
 
-  .education {
+  .service {
     height: auto;
   }
 }
 
 /* ================ MEDIA QUERIES (SMALL DEVICES) ================= */
 @media screen and (max-width: 600px) {
-  .education__container {
+  .services__container {
     grid-template-columns: 1fr;
     gap: 1.5rem;
   }

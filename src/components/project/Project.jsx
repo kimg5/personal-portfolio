@@ -6,6 +6,7 @@ import IMG3 from '../../assets/portfolio3.jpg'
 import IMG4 from '../../assets/portfolio4.jpg'
 import IMG5 from '../../assets/portfolio5.png'
 import IMG6 from '../../assets/portfolio6.jpg'
+import { PersonContext } from '../../App'
 
 // DO NOT USE THE IMAGES IN PRODUCTION
 
@@ -56,6 +57,7 @@ const data = [
 
 
 const Project = () => {
+  const [projects,setprojects] = React.useContext(PersonContext)
   return (
     <section id='portfolio'>
       <h5>My Recent Work</h5>
@@ -63,7 +65,7 @@ const Project = () => {
 
       <div className="container portfolio__container">
         {
-          data.map(({id, image, title, github, demo}) => {
+         projects.map(({id,image,title,github,demo}) => {
             return (
               <article key={id} className='portfolio__item'>
               <div className="portfolio__item-image">
