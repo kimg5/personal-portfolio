@@ -13,6 +13,8 @@ import Footer from './components/footer/Footer'
 
 
 export const PersonContext = React.createContext({
+  info:{},
+  setInfo:() =>{},
   header: {},
   setHeader: () => {},
   experience:[],
@@ -28,11 +30,14 @@ export const PersonContext = React.createContext({
 const App = () => {
   // const {username} = useParams();
   // console.log(username)
+  const [info, setInfo] = useState({})
   const [header, setHeader] = useState({})
   const [experience, setExperience] = useState([])
   const [education, setEducation] = useState([])
   const [projects, setProjects] = useState([])
   const personProvide = [
+    info,
+    setInfo,
     experience,
     setExperience,
     header,
@@ -45,13 +50,14 @@ const App = () => {
 
    useEffect(() => {
     console.log("fetched");
-      fetch("http://localhost:3001/portfolio/portfolios/user1", {
+      fetch("http://localhost:3001/portfolio/portfolios/xiaopei", {
         method: "GET",
       })
       .then((res) => res.json())
       .then((res) => {
         console.log(res)
         let data = res.content;
+        setInfo({...data.info})
         setHeader({...data.header})
         setExperience([...data.experience])
         setEducation([...data.education])
@@ -59,12 +65,14 @@ const App = () => {
       
       })
       return () => {
+        setInfo({});
         setHeader({});
         setEducation([]);
         setExperience([]);
         setProjects([]);
       }
       },[]);
+
   console.log(experience);
   return (
     <>

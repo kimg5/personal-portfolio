@@ -7,6 +7,8 @@ import { PersonContext } from '../../App'
 
 const Header = () => {
   const [
+    info,
+    setInfo,
     experience,
     setExperience,
     header,
