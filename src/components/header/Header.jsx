@@ -1,25 +1,36 @@
-import React from 'react'
+import React, { useContext } from 'react'
 import './header.css'
 import CTA from './CTA'
 import HeaderSocial from './HeaderSocials'
+import { PersonContext } from '../../App'
+ 
 
 const Header = () => {
-  const person = {
-    name :'Hajia Bintu',
-    title : 'Fullstack Developer',
-    image: process.env.PUBLIC_URL + '/images/me.png',
-  }
+  const [
+    info,
+    setInfo,
+    experience,
+    setExperience,
+    header,
+    setHeader,
+    education,
+    setEducation,
+    projects,
+    setProjects,
+   ] = useContext(PersonContext)
+  console.log(header)
  return (
     <header>
       <div className="container header__container">
         <h5>Hello I'm</h5>
-        <h1>{person.name}</h1>
-        <h5 className="text-light">{person.title}</h5>
+     
+        <h1>{header.Name}</h1>
+        <h5 className="text-light">{header.Title}</h5>
         <CTA />
         <HeaderSocial />
 
         <div className="me">
-          <img src={person.image} alt="me" />
+          <img src={`${header.image}`} alt="me" />
         </div>
     </div>
     </header>

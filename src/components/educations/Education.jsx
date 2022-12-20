@@ -1,56 +1,58 @@
-import React from "react";
-import "./education.css";
-import { IoSchoolOutline } from "react-icons/io5";
 
-const data = [
-  {
-    degree: "Master in Computer Science",
-    school: "John Abbott College",
-    city: "Montreal",
-    country: "CA",
-    startTime: "April, 2018",
-    endTime: "May, 2020",
-  },
-  {
-    degree: "Bachelor in Art",
-    school: "Concordia University",
-    city: "Montreal",
-    country: "CA",
-    startTime: "April, 2012",
-    endTime: "May, 2016",
-  },
-];
+import React, { useContext } from 'react';
+import './education.css';
+import EducationDetails from './EducationDetails';
+import { PersonContext } from '../../App';
 
 const Education = () => {
+  const [
+    info,
+    setInfo,
+    experience,
+    setExperience,
+    header,
+    setHeader,
+    education,
+    setEducation,
+    projects,
+    setProjects,
+   ]= useContext(PersonContext);
+  // const education = {
+  //   title: "What about my education",
+  //   subtitle: "Educations",
+
+  //   items: [
+  //     {
+  //       school: "Bachelor.Concordia University",
+  //       subject: "Computer Science",
+  //       duration: "09/2000 - 06/2004",
+  //       courses: ["Programming1", "Database", "Web development1"],
+  //       gpa: "4.0",
+  //     },
+  //     {
+  //       school: "Master. Concordia University",
+  //       subject: "Computer Science",
+  //       duration: "09/2004 - 06/2007",
+  //       courses: ["Programming2", "Data Structure", "Web development2"],
+  //       gpa: "3.8",
+  //     }
+  //   ]
+  // }
+
+
   return (
-    <section id="education">
-      <h5>What about my education</h5>
-      <h2>Educations</h2>
+    <section id='educations'>
+
+      <h2> My Education </h2>
+   
 
       <div className="container education__container">
-        {data.map(({ degree, school, city, country, startTime, endTime }) => {
-          return (
-            <article className="education">
-              <ul className="education__list">
-                <li>
-                  <IoSchoolOutline className="education__list-icon" />
-                  <h4 className="school">{degree}</h4>
-                  <h4>@ {school}</h4>
-                  <h4>
-                    {city} {country}
-                  </h4>
-
-                  <span>
-                    {startTime} - {endTime}
-                  </span>
-                </li>
-              </ul>
-            </article>
-          );
-        })}
+        {education.length > 0 && education.map(({school, subject, duration, courses, gpa,id }) => {
+          return  <EducationDetails  school={school} subject={subject} duration={duration} courses={courses} gpa={gpa} key={id} />  ;         
+        })}      
       </div>
     </section>
-  );
-};
+  )
+}
 
 export default Education;
