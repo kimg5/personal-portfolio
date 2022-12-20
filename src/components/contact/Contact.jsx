@@ -25,7 +25,7 @@ const Contact = () => {
   const [name, setName] = useState("");
   const [email, setEmail] = useState("");
   const [message, setMessage] = useState("");
-  const [isSent, setIsSent] = useState("false");
+  const [isSent, setIsSent] = useState(false);
   const form = useRef();
 
   const sendEmail = (e) => {
@@ -43,13 +43,16 @@ const Contact = () => {
           receiverEmail: info.email
         }),
         headers: {
-          "Content-type": "application/json;charset=UTF-8",
-        },
+          "Content-type": "application/json;charset=UTF-8"
+        }
       })
-      .then((data) => data.json())
       .then((json) => {
-        if (json.success) {
+        console.log(json);
+        if (json.ok) {
           setIsSent(true);
+          setName("");
+          setEmail("");
+          setMessage("");
         } 
       })
 
@@ -68,7 +71,7 @@ const Contact = () => {
           <input type="email" name='email' placeholder='Your Email' value={email} required onChange={e => setEmail(e.target.value)} />
           <textarea name="message" rows="7" placeholder='Your Message' value={message} required onChange={e => setMessage(e.target.value)} ></textarea>
           <button type='submit' className='btn btn-primary'>Send Message</button>
-          <span >Succeed!</span>
+          {isSent && <span> Email sent!</span>}
         </form>
       </div>
     </section>
