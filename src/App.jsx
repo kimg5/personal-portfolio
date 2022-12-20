@@ -8,63 +8,77 @@ import Project from './components/project/Project'
 import Testimonials from './components/testimonials/Testimonials'
 import Contact from './components/contact/Contact'
 import Footer from './components/footer/Footer'
-import { DockDemo } from './components/dock/DockDemo'
-import {useParams} from "react-router-dom"
+// import { DockDemo } from './components/dock/DockDemo'
+// import {useParams} from "react-router-dom"
 
 
 export const PersonContext = React.createContext({
   header: {},
   setHeader: () => {},
-  experience:{},
+  experience:[],
   setExperience: () => {},
-  education:{},
+  education:[],
   setEducation: () => {},
-  projects:{}, 
+  projects:[], 
   setProjects: () => {},
 });
 
 
 
 const App = () => {
-  const {username} = useParams();
+  // const {username} = useParams();
+  // console.log(username)
   const [header, setHeader] = useState({})
-  const [experience, setExperience] = useState({})
-  const [education, setEducation] = useState({})
-  const [projects, setProjects] = useState({})
+  const [experience, setExperience] = useState([])
+  const [education, setEducation] = useState([])
+  const [projects, setProjects] = useState([])
   const personProvide = [
-    header,
     experience,
     setExperience,
+    header,
+    setHeader,
     education,
     setEducation,
     projects,
     setProjects,
    ];
 
-   useEffect(async () => {
-      let person = await fetch(`http://localhost:3001/persons/${username}`, {
+   useEffect(() => {
+    console.log("fetched");
+      fetch("http://localhost:3001/portfolio/portfolios/user1", {
         method: "GET",
       })
-      person = await person.json();
-      setHeader([...person.header]);
-      setExperience([...person.experience]);
-      setEducation([...person.education]);
-      setProjects([...person.projects]);
-        },[]);
-
+      .then((res) => res.json())
+      .then((res) => {
+        console.log(res)
+        let data = res.content;
+        setHeader({...data.header})
+        setExperience([...data.experience])
+        setEducation([...data.education])
+        setProjects([...data.projects])
+      
+      })
+      return () => {
+        setHeader({});
+        setEducation([]);
+        setExperience([]);
+        setProjects([]);
+      }
+      },[]);
+  console.log(experience);
   return (
     <>
     <PersonContext.Provider value={personProvide}>
-        <Header />
-        <Nav />
+        <Header/>
+        {/* <Nav /> */}
         {/* <DockDemo /> */}
         <About />
-        <Experience />
+      <Experience />
         <Education />
         <Project />
         <Testimonials />
         <Contact />
-        <Footer /> 
+        <Footer />   
     </PersonContext.Provider>
     </>
     

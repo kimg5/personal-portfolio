@@ -4,7 +4,17 @@ import Skills from "./Skills";
 import { PersonContext } from "../../App";
 
 const Experience = () => {
-  const [experience, setExperience] = React.useContext(PersonContext)
+  const [
+    experience,
+    setExperience,
+    header,
+    setHeader,
+    education,
+    setEducation,
+    projects,
+    setProjects,
+   ]= useContext(PersonContext);
+  
   // const meta = {
   //   title: "What Skills I Have",
   //   subtitle: "My Experience",
@@ -73,11 +83,11 @@ const Experience = () => {
 
   return (
     <section id="experience">
-      <h5>{experience.title}</h5>
-      <h2>{experience.subtitle}</h2>
-
+      <h5>Experience</h5>
+      <h2>My skills</h2>
+      {console.log(experience)}
       <div className="container experience__container">
-        {experience.items.map(({title,css,skills,key}) => {
+        {experience.length > 0 && experience.map(({title,css,skills,key}) => {
            return <Skills title={title} css={css} skills={skills} key={key} />;
         })}
       </div>

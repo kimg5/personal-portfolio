@@ -5,7 +5,16 @@ import EducationDetails from './EducationDetails';
 import { PersonContext } from '../../App';
 
 const Education = () => {
-  const [education]  = React.useContext(PersonContext)
+  const [
+    experience,
+    setExperience,
+    header,
+    setHeader,
+    education,
+    setEducation,
+    projects,
+    setProjects,
+   ]= useContext(PersonContext);
   // const education = {
   //   title: "What about my education",
   //   subtitle: "Educations",
@@ -32,11 +41,11 @@ const Education = () => {
   return (
     <section id='educations'>
 
-      <h5>{education.title}</h5>
-      <h2>{education.subtitle}</h2>
+      <h5> </h5>
+      <h2> </h2>
 
       <div className="container education__container">
-        {education.items.map(({school, subject, duration, courses, gpa,id }) => {
+        {education.length > 0 && education.map(({school, subject, duration, courses, gpa,id }) => {
           return  <EducationDetails  school={school} subject={subject} duration={duration} courses={courses} gpa={gpa} key={id} />  ;         
         })}      
       </div>

@@ -1,10 +1,10 @@
-.services__container {
-  display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  gap: 3rem;
+.container.education__container {
+  width: 40%;
+  padding-bottom: 4rem;
 }
 
-.service {
+.education {
+  margin-bottom: 2rem;
   background: var(--color-bg-variant);
   border-radius: 0 0 2rem 2rem;
   border: 1px solid var(--color-primary);
@@ -12,59 +12,68 @@
   transition: var(--transition);
 }
 
-.service:hover {
+.education:hover {
   background: transparent;
   border-color: var(--color-primary-variant);
   cursor: default;
 }
 
-.service__head {
+.education__head {
   background: var(--color-primary);
-  padding: 2rem;
+  padding: 1rem;
   border-radius: 0 0 2rem 2rem;
   box-shadow: 0 2rem 1rem rgba(0, 0, 0, 0.1);
 }
 
-.service__head h3 {
+.education__head h3 {
   color: var(--color-bg);
-  font-size: 1rem;
-  text-align: center;
+  font-size: 1.2rem;
 }
 
-.service__list {
+.education__list {
   padding: 2rem;
 }
 
-.service__list li {
+.education__list li {
   display: flex;
   gap: 1rem;
   margin-bottom: 0.8rem;
 }
 
-.service__list-icon {
+.education__list-icon {
   color: var(--color-primary);
   margin-top: 2px;
 }
 
-.service__list p {
+.education__list p {
   font-size: 0.9rem;
+}
+
+ul.education_courseList {
+  padding-left: 1rem;
+}
+ul.education_courseList li {
+  list-style: square outside none;
+  display: list-item;
+  margin-left: 1rem;
+  color: var(--color-primary);
 }
 
 /* ================ MEDIA QUERIES (MEDIUM DEVICES) ================= */
 @media screen and (max-width: 1024px) {
-  .services__container {
+  .education__container {
     grid-template-columns: 1fr 1fr;
     gap: 2rem;
   }
 
-  .service {
+  .education {
     height: auto;
   }
 }
 
 /* ================ MEDIA QUERIES (SMALL DEVICES) ================= */
 @media screen and (max-width: 600px) {
-  .services__container {
+  .education__container {
     grid-template-columns: 1fr;
     gap: 1.5rem;
   }
