@@ -41,8 +41,8 @@ const Education = () => {
   return (
     <section id='educations'>
 
-      <h5> </h5>
-      <h2> </h2>
+      <h2> My Education </h2>
+   
 
       <div className="container education__container">
         {education.length > 0 && education.map(({school, subject, duration, courses, gpa,id }) => {
