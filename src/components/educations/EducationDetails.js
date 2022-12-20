@@ -1,6 +1,6 @@
-import React from 'react';
-import './education.css';
-import { BsFillClockFill, BsBookFill, BsFillAwardFill } from 'react-icons/bs';
+import React from "react";
+import "./education.css";
+import { BsFillClockFill, BsBookFill, BsFillAwardFill } from "react-icons/bs";
 
 function EducationDetails({ school, subject, duration, courses, gpa }) {
   const courseList = courses.map((c) => <li>{c}</li>);
@@ -15,18 +15,20 @@ function EducationDetails({ school, subject, duration, courses, gpa }) {
       <ul className="education__list">
         <li>
           <BsFillClockFill />
-          <p>
-            <i>{duration}</i>
-          </p>
+          {/* <p>
+            <i>Duration: {duration}</i> */}
+          <ul className="education_courseList">Duration: {duration}</ul>
+          {/* </p> */}
         </li>
         <li>
           <BsBookFill />
-          <ul className="education_courseList">{courseList}</ul>
+          <ul className="education_courseList">Courses: {courseList}</ul>
         </li>
 
         <li>
           <BsFillAwardFill />
-          <p>GPA: {gpa}</p>
+          {/* <p>GPA: {gpa}</p> */}
+          <ul className="education_courseList">GPA: {gpa}</ul>
         </li>
       </ul>
     </article>
