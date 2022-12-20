@@ -1,15 +1,15 @@
-import React from 'react'
-import './footer.css'
+import React from "react";
+import "./footer.css";
 
 const Footer = () => {
-  const copyRight = 'EGATOR Tutorials. All rights reserved.';
+  const copyRight = "2022 Team Constructor";
   return (
     <footer>
       <div className="footer__copyright">
         <small>&copy; {copyRight}</small>
       </div>
     </footer>
-  )
-}
+  );
+};
 
-export default Footer
+export default Footer;
