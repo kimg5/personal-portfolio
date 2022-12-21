@@ -2,9 +2,14 @@ import React from 'react';
 import './education.css';
 import { BsFillClockFill, BsBookFill, BsFillAwardFill } from 'react-icons/bs';
 
-function EducationDetails({ school, subject, duration, courses, gpa }) {
-  const courseList = courses.map((c) => <li>{c}</li>);
-
+function EducationDetails({
+  school,
+  subject,
+  degree,
+  country,
+  startTime,
+  endTime,
+}) {
   return (
     <article className="education">
       <div className="education__head">
@@ -14,19 +19,22 @@ function EducationDetails({ school, subject, duration, courses, gpa }) {
 
       <ul className="education__list">
         <li>
-          <BsFillClockFill />
-          <p>
-            <i>{duration}</i>
-          </p>
-        </li>
-        <li>
-          <BsBookFill />
-          <ul className="education_courseList">{courseList}</ul>
+          <BsFillAwardFill />
+          <p>GPA: {degree}</p>
         </li>
 
         <li>
-          <BsFillAwardFill />
-          <p>GPA: {gpa}</p>
+          <BsFillClockFill />
+          <p>
+            <i>
+              {startTime}-{endTime}
+            </i>
+          </p>
+        </li>
+
+        <li>
+          <BsBookFill />
+          <ul className="education_courseList">{country}</ul>
         </li>
       </ul>
     </article>
