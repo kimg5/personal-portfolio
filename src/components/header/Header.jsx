@@ -9,6 +9,8 @@ const Header = () => {
   const [
     info,
     setInfo,
+    aboutPhoto,
+    setAboutPhoto,
     experience,
     setExperience,
     header,
@@ -17,21 +19,22 @@ const Header = () => {
     setEducation,
     projects,
     setProjects,
+    cv,
+    setCv
    ] = useContext(PersonContext)
   console.log(header)
  return (
     <header>
       <div className="container header__container">
         <h5>Hello I'm</h5>
-     
         <h1>{header.Name}</h1>
         <h5 className="text-light">{header.Title}</h5>
-        <CTA />
+        <CTA cv={cv}/>
         <HeaderSocial />
-
-        <div className="me">
-          <img src={`${header.image}`} alt="me" />
-        </div>
+       
+        {header.image && <div className="me">
+          <img src={`http://localhost:3001/portfolio/portfolios/getphoto/${header.image}`} alt="me" />
+        </div>}
     </div>
     </header>
   )
