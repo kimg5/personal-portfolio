@@ -94,7 +94,7 @@ const App = () => {
       <Experience />
         <Education />
         <Project />
-        <Testimonials />
+//         <Testimonials />
         <Contact />
         <Footer />   
     </PersonContext.Provider>
