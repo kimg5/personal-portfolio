@@ -7,6 +7,8 @@ const HeaderSocials = () => {
   const [
     info,
     setInfo,
+    aboutPhoto,
+    setAboutPhoto,
     experience,
     setExperience,
     header,
@@ -15,7 +17,9 @@ const HeaderSocials = () => {
     setEducation,
     projects,
     setProjects,
-  ] = useContext(PersonContext);
+    cv,
+    setCv
+   ] = useContext(PersonContext)
   console.log(info);
   return (
     <div className='header__socials'>
