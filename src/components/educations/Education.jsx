@@ -8,6 +8,8 @@ const Education = () => {
   const [
     info,
     setInfo,
+    aboutPhoto,
+    setAboutPhoto,
     experience,
     setExperience,
     header,
@@ -16,7 +18,9 @@ const Education = () => {
     setEducation,
     projects,
     setProjects,
-   ]= useContext(PersonContext);
+    cv,
+    setCv
+   ] = useContext(PersonContext)
   // const education = {
   //   title: "What about my education",
   //   subtitle: "Educations",
@@ -47,8 +51,8 @@ const Education = () => {
    
 
       <div className="container education__container">
-        {education.length > 0 && education.map(({school, subject, duration, courses, gpa,id }) => {
-          return  <EducationDetails  school={school} subject={subject} duration={duration} courses={courses} gpa={gpa} key={id} />  ;         
+        {education.length > 0 && education.map(({school,degree, subject, country, startTime, endTime,id }) => {
+          return  <EducationDetails  school={school} subject={subject} degree = {degree} startTime={startTime} endTime={endTime} country={country} key={id} />  ;         
         })}      
       </div>
     </section>
