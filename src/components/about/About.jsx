@@ -1,11 +1,29 @@
-import React from 'react'
+import React, {useContext} from 'react'
 import './about.css'
 import ME from '../../assets/me-about.jpg'
 import {FaAward} from 'react-icons/fa'
 import {FiUsers} from 'react-icons/fi'
 import {VscFolderLibrary} from 'react-icons/vsc'
+import { PersonContext } from '../../App'
 
 const About = () => {
+  const [
+    info,
+    setInfo,
+    aboutPhoto,
+    setAboutPhoto,
+    experience,
+    setExperience,
+    header,
+    setHeader,
+    education,
+    setEducation,
+    projects,
+    setProjects,
+    cv,
+    setCv
+   ] = useContext(PersonContext)
+  console.log(aboutPhoto)
   return (
     <section id='about'>
       <h5>Get To Know</h5>
@@ -13,9 +31,9 @@ const About = () => {
 
       <div className="container about__container">
         <div className="about__me">
-          <div className="about__me-image">
-            <img src={ME} alt="About Image" />
-          </div>
+          {aboutPhoto && <div className="about__me-image">
+            <img src={`http://localhost:3001/portfolio/portfolios/getphoto/${aboutPhoto}`} alt="About Image" />
+          </div>}
         </div>
 
         <div className="about__content">
