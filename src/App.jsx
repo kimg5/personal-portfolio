@@ -9,7 +9,7 @@ import Testimonials from './components/testimonials/Testimonials'
 import Contact from './components/contact/Contact'
 import Footer from './components/footer/Footer'
 // import { DockDemo } from './components/dock/DockDemo'
-// import {useParams} from "react-router-dom"
+import {useParams} from "react-router-dom"
 
 
 export const PersonContext = React.createContext({
@@ -23,21 +23,29 @@ export const PersonContext = React.createContext({
   setEducation: () => {},
   projects:[], 
   setProjects: () => {},
+  aboutPhoto: '',
+  setAboutPhoto: () => {},
+  cv: '',
+  setCv: () => {},
 });
 
 
 
 const App = () => {
-  // const {username} = useParams();
-  // console.log(username)
+  const {username} = useParams();
+  console.log(username)
   const [info, setInfo] = useState({})
   const [header, setHeader] = useState({})
   const [experience, setExperience] = useState([])
   const [education, setEducation] = useState([])
   const [projects, setProjects] = useState([])
+  const [aboutPhoto, setAboutPhoto] = useState('')
+  const [cv, setCv] = useState('')
   const personProvide = [
     info,
     setInfo,
+    aboutPhoto,
+    setAboutPhoto,
     experience,
     setExperience,
     header,
@@ -46,11 +54,13 @@ const App = () => {
     setEducation,
     projects,
     setProjects,
+    cv,
+    setCv
    ];
 
    useEffect(() => {
     console.log("fetched");
-      fetch("http://localhost:3001/portfolio/portfolios/xiaopei", {
+      fetch(`http://localhost:3001/portfolio/portfolios/${username}`, {
         method: "GET",
       })
       .then((res) => res.json())
@@ -62,7 +72,8 @@ const App = () => {
         setExperience([...data.experience])
         setEducation([...data.education])
         setProjects([...data.projects])
-      
+        setAboutPhoto(data.aboutPhoto)
+        setCv(data.cv)
       })
       return () => {
         setInfo({});
@@ -73,7 +84,7 @@ const App = () => {
       }
       },[]);
 
-  console.log(experience);
+  console.log(cv);
   return (
     <>
     <PersonContext.Provider value={personProvide}>
