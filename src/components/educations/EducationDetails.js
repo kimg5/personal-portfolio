@@ -20,7 +20,7 @@ function EducationDetails({
       <ul className="education__list">
         <li>
           <BsFillAwardFill />
-          <p>GPA: {degree}</p>
+          <p>Degree: {degree}</p>
         </li>
 
         <li>
