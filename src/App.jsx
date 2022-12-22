@@ -9,7 +9,7 @@ import Testimonials from './components/testimonials/Testimonials'
 import Contact from './components/contact/Contact'
 import Footer from './components/footer/Footer'
 // import { DockDemo } from './components/dock/DockDemo'
-
+// import {useParams} from "react-router-dom"
 
 
 export const PersonContext = React.createContext({
@@ -32,7 +32,11 @@ export const PersonContext = React.createContext({
 
 
 const App = () => {
+  // const {username} = useParams();
+  // console.log(username)
   let username = decodeURI(window.location.href.split("?")[1]);
+
+
   const [info, setInfo] = useState({})
   const [header, setHeader] = useState({})
   const [experience, setExperience] = useState([])
@@ -94,7 +98,6 @@ const App = () => {
       <Experience />
         <Education />
         <Project />
-//         <Testimonials />
         <Contact />
         <Footer />   
     </PersonContext.Provider>
