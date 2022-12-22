@@ -2,7 +2,7 @@ import React from 'react'
 import './footer.css'
 
 const Footer = () => {
-  const copyRight = 'EGATOR Tutorials. All rights reserved.';
+  const copyRight = 'Portfolio. All rights reserved.';
   return (
     <footer>
       <div className="footer__copyright">
