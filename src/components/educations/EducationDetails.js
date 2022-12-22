@@ -27,14 +27,14 @@ function EducationDetails({
           <BsFillClockFill />
           <p>
             <i>
-              {startTime}-{endTime}
+              from&nbsp;{startTime}&nbsp;to&nbsp;{endTime}
             </i>
           </p>
         </li>
 
         <li>
           <BsBookFill />
-          <ul className="education_courseList">{country}</ul>
+          <p className="education_courseList">{country}</p>
         </li>
       </ul>
     </article>
