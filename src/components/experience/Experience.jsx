@@ -21,9 +21,6 @@ const Experience = () => {
     setCv
    ] = useContext(PersonContext)
   
-
-
-
   return (
     <section id="experience">
       <h5>Experience</h5>
