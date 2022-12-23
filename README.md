@@ -7,6 +7,7 @@ Install guide:
 2. npm install
 3. The project depends on the publsihed data of the API backend system. So you have to install the backend system
    in App.jsx line 66 : change the url to your backend system API http://localhost:3001/portfolio/portfolios/${username}
+   The backend subsystem is https://github.com/kimg5/react-portfolio.git go there for the detail about how to install it.
 4. npm start
 5. http://localhost:3000/?$username}
    $username} is saved usename in the backend system
